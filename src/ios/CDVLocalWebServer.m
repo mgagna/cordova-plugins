@@ -81,7 +81,7 @@
     NSString* authToken = [NSString stringWithFormat:@"cdvToken=%@", [[NSProcessInfo processInfo] globallyUniqueString]];
 
     self.server = [[GCDWebServer alloc] init];
-    [GCDWebServer setLogLevel:kGCDWebServerLoggingLevel_Error];
+    // [GCDWebServer setLogLevel:kGCDWebServerLoggingLevel_Error]; // Commenting out this line as kGCDWebServerLoggingLevel_Error is not exposed and throws a build error when using the plugin
 
     if (useLocalWebServer) {
         [self addAppFileSystemHandler:authToken basePath:[NSString stringWithFormat:@"/%@/", appBasePath] indexPage:indexPage];
